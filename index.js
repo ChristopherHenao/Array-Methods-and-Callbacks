@@ -53,7 +53,7 @@ Use the higher-order function called getYears to do the following:
 3. Return an array called years containing all of the years in the getFinals data set*/
 
 function getYears(arr, cb) {
-    const years = fifaData.map(item => item.Year);
+    const years = cb(arr).map(item => item.Year);
     return years;
 }
 console.log(getYears(fifaData, getFinals))
