@@ -38,7 +38,7 @@ hint - you should be looking at the stage key inside of the objects
 */
 
 function getFinals(data) {
-   return data.filter(game => game.Stage === "Final")
+   return data.filter(item => item.Stage === "Final")
 }
 
 // const getFinals = fifaData.filter(data => data.Stage === "Final");
@@ -66,11 +66,19 @@ Use the higher-order function getWinners to do the following:
 3. Determines the winner (home or away) of each `finals` game. 
 4. Returns the names of all winning countries in an array called `winners` */ 
 
-function getWinners(/* code here */) {
-    /* code here */
+function getWinners(array,cb) {
+    let winners = [];
+    cb(array).forEach(function(item){
+        if(item["Home Team Goals"] > item["Away Team Goals"]){
+           return winners.push(item["Home Team Name"]);
+        } 
+        else {return winners.push(item["Away Team Name"]);     
+        }
+    });      
+return winners;
 }
 
-
+console.log(getWinners(fifaData, getFinals))
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use the higher-order function getWinnersByYear to do the following:
@@ -82,7 +90,7 @@ Use the higher-order function getWinnersByYear to do the following:
 hint: the strings returned need to exactly match the string in step 4.
  */
 
-function getWinnersByYear(/* code here */) {
+function getWinnersByYear(array, cb3, cb4) {
     /* code here */
 }
 
